@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="main-container">
+    <p class="p1">Library</p>
+    <dialog id="myDialog">
+        <form id="myForm">
+            <p class="p2">
+                <label for="bookTitle">Title:</label>
+                <input type="text" name="book-title" id="bookTitle">
+            </p>
+            <P class="p2">
+                <label for="bookAuthor">Author:</label>
+                <input type="text" name="book-author" id="bookAuthor">
+            </P>
+            <p class="p2">
+                <label for="totalPages">Pages:</label>
+                <input type="number" step="1" name="total-pages" id="totalPages">
+            </p>
+            <p class="p2">
+                <label for="readingStatus">Reading Status:</label>
+                <select name="reading-Status" id="readingStatus">
+                    <option value="N/A" selected>Choose</option>
+                    <option value="true">Read</option>
+                    <option value="false">Hasn't Read</option>
+                </select>
+            </p>
+            <div class="btns">
+            <p class="p6">
+                <button id="cancel" type="button">Cancel</button>
+            </p>
+            <p class="p7">
+                <button id="submit" type="submit">Submit</button>
+            </p>
+            </div>
+       </form>
+    </dialog>
+    <button class="b1">Add Books</button>
+    <div class="container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
