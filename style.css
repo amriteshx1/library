@@ -50,13 +50,19 @@ form{
     gap: 20px;
 }
 
+.p2{
+    width: 100%;
+    display: grid;
+    justify-items: start;
+}
+
 label{
     font-size: 20px;
     font-family: inherit;
 }
 input{
-    height: 22px;
-    width: 200px;
+    height: 25px;
+    width: 100%;
     appearance: none;
     border-radius: 5px;
     margin: 0;
@@ -65,19 +71,25 @@ input{
 }
 
 .btns{
+    width: 100%;
     display: flex;
-    justify-content: center;
+    /* flex-direction: column;
+    justify-content: center; */
     align-items: center;
-    gap: 50px;
+    gap: 10px;
+}
+.p6,.p7{
+    width: 100%;
 }
 #cancel,#submit{
-    height: 35px;
-    width: 90px;
+    height: 30px;
+    width: 100%;
     border-radius: 5px;
     font-size: 20px;
     font-family: serif;
     background-color: #1F2937;
     color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .container{
     display: flex;
