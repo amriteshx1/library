@@ -1,24 +1,22 @@
+
+class Book{
+  constructor(title,author,pages,hasRead){
+
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.hasRead = hasRead;
+  }
+
+  changeReadStatus(){
+    this.hasRead = !this.hasRead;
+  }
+}
+
 const myLibrary = [
   new Book('Crime and Punishment','Fyodor Dostoyevsky','720',true),
   new Book('1984','George Orwell','328',false)
 ];
-
-function Book(title,author,pages,hasRead){
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.hasRead = hasRead;
-}
-Book.prototype.changeReadStatus = function () {
-  this.hasRead = !this.hasRead;
-};
-
-
-function addBookToLibrary(title,author,pages,hasRead){
-  const book1 = new Book(title,author,pages,hasRead);
-  myLibrary.push(book1);
-}
 
 function displayBooks(arr){
     const cnt = document.querySelector('.container');
@@ -80,7 +78,8 @@ form.addEventListener('submit',(event) =>{
   const writer = document.getElementById('bookAuthor').value;
   const page = parseInt(document.getElementById('totalPages').value);
   const view = document.getElementById('readingStatus').value;
-  addBookToLibrary(title,writer,page,view);
+  const bookNew = new Book(title,writer,page,view);
+  myLibrary.push(bookNew);
   displayBooks(myLibrary);
   dialog.close();
   form.reset();
