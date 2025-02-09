@@ -70,14 +70,64 @@ const dialog = document.getElementById("myDialog");
 const form = document.getElementById("myForm");
 const showBtn = document.querySelector('.b1');
 const cancelBtn = document.getElementById("cancel");
+const titleIn = document.getElementById('bookTitle');
+const writerIn = document.getElementById('bookAuthor');
+const pageIn = document.getElementById('totalPages');
+const viewIn = document.getElementById('readingStatus');
+
+titleIn.addEventListener('input', () => {
+  titleIn.setCustomValidity('');
+});
+
+writerIn.addEventListener('input', () => {
+  writerIn.setCustomValidity('');
+});
+
+pageIn.addEventListener('input', () => {
+  pageIn.setCustomValidity('');
+});
+
+viewIn.addEventListener('input', () => {
+  viewIn.setCustomValidity('');
+});
 
 form.addEventListener('submit',(event) =>{
   event.preventDefault();
 
-  const title = document.getElementById('bookTitle').value;
-  const writer = document.getElementById('bookAuthor').value;
-  const page = parseInt(document.getElementById('totalPages').value);
-  const view = document.getElementById('readingStatus').value;
+  const title = titleIn.value.trim();
+  console.log(title)
+  const writer = writerIn.value.trim();
+  const page = parseInt(pageIn.value.trim());
+  const view = viewIn.value;
+
+  let isValid = true;
+  
+
+  if(!title ){
+    titleIn.setCustomValidity('Enter title');
+    isValid = false;
+  }
+  
+  if (!writer){
+    writerIn.setCustomValidity('Enter author');
+    isValid = false;
+  }
+
+  if (!page || page <= 0){
+    pageIn.setCustomValidity('Enter valid number of pages');
+    isValid = false;
+  }
+  
+  if (viewIn.value === ""){
+    viewIn.setCustomValidity('Provide reading status');
+    isValid = false;
+  }
+
+  if (!isValid){
+    form.reportValidity();
+    return;
+  }
+
   const bookNew = new Book(title,writer,page,view);
   myLibrary.push(bookNew);
   displayBooks(myLibrary);
